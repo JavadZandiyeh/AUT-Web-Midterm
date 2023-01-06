@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <!-- GitHub User Profile Information -->
+        <title>GUPI</title>
+        <meta name="author" content="Mohammad Javad Zandiyeh">
+        <meta name="description" content="AUT Web Midterm">
+        <meta name="keywords" content="HTML, CSS, JavaScript">
+        <!-- Not all devices has the same width -->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="styles/index.css">
+    </head>
+    <body>
+        <div class="base-part">
+            <div class="content-part">
+                <div class="user-info-part">
+                    <div class="most-user-info">
+                        <img class="octocat-image" id="avatar" src="images/blank-avatar.jpg" alt="avatar"/>
+                        <div class="user-info-text-part">
+                            <p id="name" class="user-detail-text-style">name</p>
+                            <p id="blog" class="user-detail-text-style">blog</p>                            
+                            <p id="location" class="user-detail-text-style">location</p>
+                            <p id="favorite-language" class="user-detail-text-style">favorite language</p>
+                        </div>
+                    </div>
+                    <p id="bio" class="user-blog-info">biography</p>
+                </div>
+                <div class="submit-part">
+                    <img class="octocat-image" src="images/octocat-image.png" alt="octocat"/>
+                    <input class="username-text" id="username" type="text" placeholder="username">
+                    <button class="submit-button" id="submit" type="submit">submit</button>
+                    <p id="status" class="status"></p>
+                </div>
+            </div>
+        </div>
+        <script src="src/index.js"></script>
+    </body>
+</html>

@@ -1,0 +1,165 @@
+/* 
+    the description of each line, can be found by putting cursor on it, in vscode.
+    just the high level descriptions have written on top of each part.
+*/
+
+/* 
+    body settings
+*/
+body {
+    /* font */
+    font-family: 'Times New Roman', Times, serif;
+    /* background image and base color (color is uses, if found not image) */
+    background-image: url('../images/octocat-background.jpg');
+    background-color: #424f99;
+    /* not repeat image in body */
+    background-repeat: no-repeat;
+    /* cover full screen background image */
+    background-position: center;
+    background-size: cover;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+}
+
+/* 
+    base settings for page. the content-part is the only part of base-part
+*/
+.base-part {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 600px;
+}
+
+/* 
+    where the content of page is shown: contains two parts in itself with row flex
+*/
+.content-part {
+    display: flex;
+    flex-direction: row;
+    padding: 30px;
+    opacity: 0.8;
+    border: 1px solid #55926f;
+    border-radius: 20px;
+    background-color: skyblue;
+}
+
+/* -------------------------------user info part-------------------------------- */
+
+/* 
+    where the users detail is shown: contains name, location, favorite language, ... 
+*/
+.user-info-part {
+    display: flex;
+    flex-direction: column;
+    padding: 30px;
+    border: 1px solid #55926f;
+    border-radius: 20px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+/* 
+    avatar, name, blog, location, favorite-language are in this part
+*/
+.most-user-info {
+    display: flex;
+    flex-direction: row;
+}
+
+/* 
+    user avatar settings
+*/
+.avatar {
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;
+}
+
+/* 
+    name, blog, location, favorite-language are in a column order here
+*/
+.user-info-text-part {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    line-height: 30px;
+    width: 250px;
+}
+
+/* 
+    style for each text of user detail
+*/
+.user-detail-text-style {
+    text-align: center;
+    width: 300px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+/* 
+    the bio detail of user
+*/
+.user-blog-info {
+    text-align: left;
+    white-space: pre-wrap;
+    line-height: 50px;
+    margin-top: 40px;
+    margin-left: 20px;
+}
+
+/* ---------------------------------submit part--------------------------------- */
+
+/* 
+    where we put username and submit data: have two sections (username, submit)
+*/
+.submit-part {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    border: 1px solid #55926f;
+    border-radius: 20px;
+    margin-left: 60px;
+    justify-content: center;
+}
+
+/* 
+    this is settings for octocat image in submit-part
+*/
+.octocat-image {
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;
+}
+
+/* 
+    the username is aligned center and is submit-part
+*/
+.username-text {
+    text-align: center;
+    border-radius: 30%;
+    width: 200px;
+    margin-top: 30px;
+    box-sizing: border-box;
+}
+
+/*
+    submit button in the submit part
+*/
+.submit-button {
+    text-align: center;
+    border-radius: 30%;
+    width: 200px;
+    margin-top: 15px;
+}
+
+/* 
+    status message when user not available or when loading from local storage
+*/
+.status {
+    text-align: center;
+    margin-top: 15px;
+    margin-bottom: 30px;
+}
