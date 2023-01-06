@@ -57,7 +57,7 @@ function getUserProfileData(username) {
 
         // parse json data
         const jsonParsedResponse = JSON.parse(xmlHttpRequest.responseText);
-        console.log(jsonParsedResponse);
+
         // extract required data from response
         return jsonParsedResponse.id ? {
             name: jsonParsedResponse.name,
@@ -73,10 +73,31 @@ function getUserProfileData(username) {
     }
 }
 
+// get favorite language by finding most used language in last five repos
 function getFavoriteLanguage(username) {
-    return "";
+    const api = getUsersReposApi(username);
+    const xmlHttpRequest = new XMLHttpRequest();
+
+    try {
+        // get request (synchrone)
+        xmlHttpRequest.open("GET", api, false);
+        xmlHttpRequest.send(null);
+
+        // parse json data
+        const repos = JSON.parse(xmlHttpRequest.responseText);
+
+        // array is sorted by pushed when we requested by (sort=pushed) parameter
+        // get languages of last 5 pushed repos
+        const languages = repos.slice(0, 5).map(repo => repo.language);
+        
+        return (Object.keys(languages).length > 0) ? getMostFrequent(languages) : "";
+    } catch (error) {
+        updateStatus("no response from server", "red");
+        return "";
+    }
 }
 
+// set data of screen by founded data from storage or api (for empty data we put a default value)
 function setUserDataOnScreen(userData) {
     nameElement.innerText = userData.name || "name not found";
     blogElement.innerText = userData.blog || "blog not found";
@@ -86,10 +107,12 @@ function setUserDataOnScreen(userData) {
     avatarElement.src = userData.avatar;
 }
 
+// save array data to storage by stringify it
 function saveToLocalStorage(username, userData) {
     localStorage.setItem(username, JSON.stringify(userData));
 }
 
+// get data from storage and convert it to array
 function getLocalStorageData(username) {
     if (localStorageData = localStorage.getItem(username)) {
         return JSON.parse(localStorageData);
@@ -97,15 +120,28 @@ function getLocalStorageData(username) {
     return null;
 }
 
+// api for getting user profile data
 function getUsersApi(username) {
     return `https://api.github.com/users/${username}`;
 }
 
+// api for getting user repos with sorting by pushed
 function getUsersReposApi(username) {
-    return `https://api.github.com/users/${username}/repos`;
+    return `https://api.github.com/users/${username}/repos?sort=pushed`;
 }
 
+// update status of status text
 function updateStatus(text, color) {
     statusElement.innerText = text;
     statusElement.style.color = color;
+}
+
+function getMostFrequent(arr) {
+    const hashmap = arr.reduce( (acc, val) => {
+     acc[val] = (acc[val] || 0 ) + 1
+     return acc
+    },{});
+    delete hashmap["null"];
+
+    return (Object.keys(hashmap).length > 0) ? Object.keys(hashmap).reduce((a, b) => hashmap[a] > hashmap[b] ? a : b) : "";
 }
