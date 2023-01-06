@@ -42,8 +42,7 @@ function submitButtonListener() {
     }
 
     // if data not found in storage and server error occured too
-    updateStatus("server error", "red");
-    clearUserDataOnScreen();
+    updateStatus("user not found", "red");
 }
 
 // get user data 
@@ -84,16 +83,7 @@ function setUserDataOnScreen(userData) {
     locationElement.innerText = userData.location || "location not found";
     favoriteLanguageElement.innerText = userData.favoriteLanguage || "favorite language not found";
     bioElement.innerText = userData.bio || "bio not found";
-    avatarElement.src = userData.avatar || "";
-}
-
-function clearUserDataOnScreen() {
-    nameElement.innerText = "";
-    blogElement.innerText = "";
-    locationElement.innerText = "";
-    favoriteLanguageElement.innerText = "";
-    bioElement.innerText = "";
-    avatarElement.src = "";
+    avatarElement.src = userData.avatar;
 }
 
 function saveToLocalStorage(username, userData) {

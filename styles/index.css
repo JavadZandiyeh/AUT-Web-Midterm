@@ -59,6 +59,7 @@ body {
     border-radius: 20px;
     margin-left: 10px;
     margin-right: 10px;
+    width: 550px;
 }
 
 /* 
@@ -67,6 +68,8 @@ body {
 .most-user-info {
     display: flex;
     flex-direction: row;
+    margin-right: 10px;
+    margin-left: 10px;
 }
 
 /* 
@@ -76,6 +79,7 @@ body {
     border-radius: 50%;
     width: 200px;
     height: 200px;
+    margin-right: 50px;
 }
 
 /* 
@@ -86,7 +90,7 @@ body {
     flex-direction: column;
     justify-content: center;
     line-height: 30px;
-    width: 250px;
+    width: 300px;
 }
 
 /* 
@@ -94,7 +98,7 @@ body {
 */
 .user-detail-text-style {
     text-align: center;
-    width: 300px;
+    width: 200px;
     margin-top: 10px;
     margin-bottom: 10px;
 }
@@ -107,7 +111,8 @@ body {
     white-space: pre-wrap;
     line-height: 50px;
     margin-top: 40px;
-    margin-left: 20px;
+    margin-left: 10px;
+    margin-right: 10px;
 }
 
 /* ---------------------------------submit part--------------------------------- */
